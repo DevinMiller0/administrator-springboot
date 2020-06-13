@@ -1,10 +1,10 @@
-package cn.gleaners.adminstratorspringboot;
+package cn.gleaners.administrator;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AdminstratorSpringbootApplicationTests {
+class AdministratorApplicationTests {
 
     @Test
     void contextLoads() {

@@ -1,4 +1,4 @@
-package cn.gleaners.adminstratorspringboot.service;
+package cn.gleaners.administrator.service;
 
 /**
  * @author WangDeSheng

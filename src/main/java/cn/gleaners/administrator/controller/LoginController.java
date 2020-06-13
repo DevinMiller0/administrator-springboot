@@ -1,7 +1,8 @@
-package cn.gleaners.adminstratorspringboot.controller;
+package cn.gleaners.administrator.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -14,9 +15,9 @@ public class LoginController {
 
     @PostMapping("/login")
     @ResponseBody
-    public String login(String username, String password) {
-
-        return "login";
+    public String login(@RequestParam("username") String username, @RequestParam("password") String password) {
+        System.out.println(username + "  " + password);
+        return "Success in login...";
     }
 
 }

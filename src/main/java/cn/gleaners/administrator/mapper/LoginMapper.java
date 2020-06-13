@@ -1,4 +1,4 @@
-package cn.gleaners.adminstratorspringboot.mapper;
+package cn.gleaners.administrator.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 

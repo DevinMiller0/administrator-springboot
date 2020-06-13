@@ -1,13 +1,13 @@
-package cn.gleaners.adminstratorspringboot;
+package cn.gleaners.administrator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AdminstratorSpringbootApplication {
+public class AdministratorApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AdminstratorSpringbootApplication.class, args);
+        SpringApplication.run(AdministratorApplication.class, args);
     }
 
 }
