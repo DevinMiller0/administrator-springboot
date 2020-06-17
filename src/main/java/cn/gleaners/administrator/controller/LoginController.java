@@ -1,9 +1,13 @@
 package cn.gleaners.administrator.controller;
 
+import cn.gleaners.administrator.model.UserModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.Map;
 
 /**
  * @author WangDeSheng
@@ -15,8 +19,8 @@ public class LoginController {
 
     @PostMapping("/login")
     @ResponseBody
-    public String login(@RequestParam("username") String username, @RequestParam("password") String password) {
-        System.out.println(username + "  " + password);
+    public String login(@RequestBody Map<String, Object> userMap) {
+        System.out.println(userMap.toString());
         return "Success in login...";
     }
 

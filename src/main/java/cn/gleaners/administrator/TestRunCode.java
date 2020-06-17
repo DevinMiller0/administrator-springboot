@@ -8,7 +8,16 @@ package cn.gleaners.administrator;
 public class TestRunCode {
     public static void main(String[] args) {
 
-        System.out.println(getStart0Count("00001124200"));
+//        char[] arr = "12233340".toCharArray();
+//        for (char c : arr) {
+//            System.out.println(c);
+//        }
+
+        String testString = "G6SD4F5GR2S9";
+
+        for (int i = 0; i < testString.length(); i++) {
+
+        }
     }
 
     public static String getStart0Count(String num) {
