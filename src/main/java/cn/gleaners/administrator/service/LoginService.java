@@ -1,10 +1,12 @@
 package cn.gleaners.administrator.service;
 
+import cn.gleaners.administrator.model.AdminEntity;
+
 /**
  * @author WangDeSheng
  * @date 2020/6/12 17:25
  * description：
  */
 public interface LoginService {
-    void login(String username, String password);
+    AdminEntity login(String username, String password);
 }

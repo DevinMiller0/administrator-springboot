@@ -1,5 +1,7 @@
 package cn.gleaners.administrator;
 
+import java.util.Arrays;
+
 /**
  * @author WangDeSheng
  * @date 2020/6/13 13:51
@@ -8,16 +10,21 @@ package cn.gleaners.administrator;
 public class TestRunCode {
     public static void main(String[] args) {
 
-//        char[] arr = "12233340".toCharArray();
-//        for (char c : arr) {
-//            System.out.println(c);
-//        }
-
-        String testString = "G6SD4F5GR2S9";
-
-        for (int i = 0; i < testString.length(); i++) {
-
+//        System.out.println("f030".replaceFirst("^0*", ""));
+        String s = "OK LOGIN=M NPLC={F00D,0};{F00D,0};{F00D,0};{F00D,0};";
+        String s1 = "NPLC={F00D,0};{F00D,0};{F00D,0};{F00D,0};";
+        String m = "";
+        if (s.indexOf("OK LOGIN=M NPLC=") == 0) {
+            m = s.substring(16);
         }
+
+        m = m.replace("{", "").replace("}", "");
+        String[] arr = m.split(";");
+        System.out.println(arr.length);
+        for (String i : arr) {
+            System.out.println(i);
+        }
+
     }
 
     public static String getStart0Count(String num) {

@@ -5,8 +5,8 @@
 <mapper namespace="cn.gleaners.administrator.mapper.LoginMapper">
 
 
-    <select id="login" parameterType="String" resultType="Integer">
-        select
+    <select id="login" parameterType="String" resultType="cn.gleaners.administrator.model.AdminEntity">
+        select  email, username, aid from admin where username = #{username} and password = #{password}
     </select>
 
 </mapper>

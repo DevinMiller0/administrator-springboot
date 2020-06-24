@@ -1,6 +1,8 @@
 package cn.gleaners.administrator.mapper;
 
+import cn.gleaners.administrator.model.AdminEntity;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * @author WangDeSheng
@@ -9,5 +11,5 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface LoginMapper {
-    void login(String username,String password);
+    AdminEntity login(@Param("username") String username, @Param("password") String password);
 }
