@@ -2,8 +2,11 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.gleaners.administrator.mapper.LoginMapper">
+<mapper namespace="cn.gleaners.administrator.mapper.ArticleManagerMapper">
 
 
+    <select id="selectArticles" resultType="cn.gleaners.administrator.model.ArticleModel" >
+        select * from articles
+    </select>
 
 </mapper>

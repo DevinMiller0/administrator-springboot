@@ -1,6 +1,8 @@
 package cn.gleaners.administrator;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author WangDeSheng
@@ -9,22 +11,15 @@ import java.util.Arrays;
  */
 public class TestRunCode {
     public static void main(String[] args) {
+        Map<String, String> map = new HashMap<>();
 
-//        System.out.println("f030".replaceFirst("^0*", ""));
-        String s = "OK LOGIN=M NPLC={F00D,0};{F00D,0};{F00D,0};{F00D,0};";
-        String s1 = "NPLC={F00D,0};{F00D,0};{F00D,0};{F00D,0};";
-        String m = "";
-        if (s.indexOf("OK LOGIN=M NPLC=") == 0) {
-            m = s.substring(16);
+        map.put("hello", "world");
+        System.out.println(map.get("hello"));
+
+        System.out.println(map.get("hi"));
+        if (map.get("hi") == null) {
+            System.out.println("is empty");
         }
-
-        m = m.replace("{", "").replace("}", "");
-        String[] arr = m.split(";");
-        System.out.println(arr.length);
-        for (String i : arr) {
-            System.out.println(i);
-        }
-
     }
 
     public static String getStart0Count(String num) {
