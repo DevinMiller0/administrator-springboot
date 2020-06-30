@@ -21,6 +21,16 @@ public class ArticleModel {
     private String time;
     private String description;
     private String updateTime;
+    private String state;
+
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
 
     public String getUpdateTime() {
         return updateTime;

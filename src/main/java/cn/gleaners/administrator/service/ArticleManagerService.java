@@ -1,6 +1,8 @@
 package cn.gleaners.administrator.service;
 
 import cn.gleaners.administrator.model.ArticleModel;
+import cn.gleaners.administrator.model.Category2Model;
+import cn.gleaners.administrator.model.CategoryModel;
 
 import java.util.List;
 
@@ -11,4 +13,10 @@ import java.util.List;
  */
 public interface ArticleManagerService {
     List<ArticleModel> selectArticles();
+
+    int updateArticleState(int state, int id);
+
+    List<CategoryModel> selectCategory();
+
+    List<Category2Model> selectC2ByCid(String cid);
 }

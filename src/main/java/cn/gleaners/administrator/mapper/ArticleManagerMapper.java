@@ -1,7 +1,10 @@
 package cn.gleaners.administrator.mapper;
 
 import cn.gleaners.administrator.model.ArticleModel;
+import cn.gleaners.administrator.model.Category2Model;
+import cn.gleaners.administrator.model.CategoryModel;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -13,4 +16,10 @@ import java.util.List;
 @Mapper
 public interface ArticleManagerMapper {
     List<ArticleModel> selectArticles();
+
+    int updateArticleState(@Param("state") int state, @Param("id") int id);
+
+    List<CategoryModel> selectCategory();
+
+    List<Category2Model> selectC2ByCid(String cid);
 }

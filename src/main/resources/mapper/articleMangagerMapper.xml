@@ -6,7 +6,19 @@
 
 
     <select id="selectArticles" resultType="cn.gleaners.administrator.model.ArticleModel" >
-        select * from articles
+        select id, title, author, time, author_id, views, category, category2, cid, c2id, state from articles;
+    </select>
+
+    <update id="updateArticleState" parameterType="int">
+        update articles set state=#{state} where id=#{id};
+    </update>
+
+    <select id="selectCategory" resultType="cn.gleaners.administrator.model.CategoryModel">
+        select * from category;
+    </select>
+
+    <select id="selectC2ByCid" parameterType="String" resultType="cn.gleaners.administrator.model.Category2Model">
+        select * from category2 where cid=#{cid};
     </select>
 
 </mapper>

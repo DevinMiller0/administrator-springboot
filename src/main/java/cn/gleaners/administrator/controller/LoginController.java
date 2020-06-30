@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Map;
@@ -28,17 +29,11 @@ public class LoginController {
 
     @PostMapping("/login")
     @ResponseBody
-    public ResultData<Object> login(@RequestBody Map<String, Object> userMap) {
-
-        String username = (String) userMap.get("username");
-        String password = (String) userMap.get("password");
-
+    public ResultData<Object> login(@RequestParam("username") String username, @RequestParam("password") String password) {
         if ("".equals(username) || "".equals(password)) {
             return Response.Failed(Code.PARAM_ERROR, Message.PARAM_ERROR, null);
         }
-
         AdminEntity admin = loginService.login(username, password);
-
         if (admin != null) {
             String token = JwtUtils.generateToken(admin);
             admin.setToken(token);
