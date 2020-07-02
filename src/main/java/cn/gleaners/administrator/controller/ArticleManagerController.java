@@ -33,7 +33,7 @@ public class ArticleManagerController {
     @PostMapping("/getArticle")
     @ResponseBody
     public ResultData<Object> getArticle(@RequestParam("pageNum") int pageNum) {
-        PageHelper.startPage(pageNum, 8);
+        PageHelper.startPage(pageNum, 3);
         PageInfo<ArticleModel> pageInfo = new PageInfo<>(articleManagerService.selectArticles());
         return Response.Success(pageInfo);
     }
