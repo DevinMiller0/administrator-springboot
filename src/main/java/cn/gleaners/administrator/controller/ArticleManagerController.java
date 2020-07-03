@@ -12,10 +12,8 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,27 +30,24 @@ public class ArticleManagerController {
 
     @PostMapping("/getArticle")
     @ResponseBody
-    public ResultData<Object> getArticle(@RequestParam("pageNum") int pageNum) {
-        PageHelper.startPage(pageNum, 3);
-        PageInfo<ArticleModel> pageInfo = new PageInfo<>(articleManagerService.selectArticles());
+    public ResultData<Object> getArticle(int pageNum, String cid, String c2id) {
+        PageHelper.startPage(pageNum, 4);
+        PageInfo<ArticleModel> pageInfo = new PageInfo<>(articleManagerService.selectArticles(cid, c2id));
         return Response.Success(pageInfo);
     }
 
     @PostMapping("/setState")
     @ResponseBody
-    public ResultData<Object> setState(@RequestParam("state") int state, @RequestParam("id") int id) {
-
+    public ResultData<Object> setState(int state, int id) {
         if (state != 0 && state != 1) {
             return Response.Failed(Code.PARAM_ERROR, Message.PARAM_ERROR, "");
         }
-
         int c = articleManagerService.updateArticleState(state, id);
         if (c == 1) {
             return Response.Success();
         } else {
             return Response.Failed();
         }
-
     }
 
     @GetMapping("/getCategory")
@@ -75,5 +70,11 @@ public class ArticleManagerController {
         } else {
             return Response.Failed();
         }
+    }
+
+    @PostMapping("/saveArticle")
+    @ResponseBody
+    public ResultData<Object> saveArticle(@RequestBody ArticleModel articleModel) {
+        return Response.Success();
     }
 }

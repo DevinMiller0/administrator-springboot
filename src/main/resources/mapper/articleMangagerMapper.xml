@@ -5,8 +5,18 @@
 <mapper namespace="cn.gleaners.administrator.mapper.ArticleManagerMapper">
 
 
-    <select id="selectArticles" resultType="cn.gleaners.administrator.model.ArticleModel" >
-        select id, title, author, time, author_id, views, category, category2, cid, c2id, state from articles
+    <select id="selectArticles" parameterType="String" resultType="cn.gleaners.administrator.model.ArticleModel" >
+        <if test="cid == '' or c2id == ''">
+            select
+            id, title, author, time, author_id, views, category, category2, cid, c2id, state
+            from articles
+        </if>
+
+        <if test="cid != '' and c2id != ''">
+            select
+            id, title, author, time, author_id, views, category, category2, cid, c2id, state
+            from articles where cid=#{cid} and c2id=#{c2id}
+        </if>
     </select>
 
     <update id="updateArticleState" parameterType="int">

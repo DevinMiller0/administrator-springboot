@@ -22,8 +22,8 @@ public class ArticleManagerImpl implements ArticleManagerService {
     ArticleManagerMapper articleManagerMapper;
 
     @Override
-    public List<ArticleModel> selectArticles() {
-        return articleManagerMapper.selectArticles();
+    public List<ArticleModel> selectArticles(String cid, String c2id) {
+        return articleManagerMapper.selectArticles(cid, c2id);
     }
 
     @Override

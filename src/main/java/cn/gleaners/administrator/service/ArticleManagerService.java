@@ -12,7 +12,7 @@ import java.util.List;
  * description：
  */
 public interface ArticleManagerService {
-    List<ArticleModel> selectArticles();
+    List<ArticleModel> selectArticles(String cid, String c2id);
 
     int updateArticleState(int state, int id);
 
