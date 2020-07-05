@@ -2,9 +2,7 @@ package cn.gleaners.administrator;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
-import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.*;
 
 /**
  * @author WangDeSheng
@@ -17,5 +15,16 @@ public class WebConfiguration implements WebMvcConfigurer {
     @Override
     public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
         configurer.defaultContentType(MediaType.APPLICATION_JSON);
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        InterceptorRegistration registration = registry.addInterceptor(new AdminInterceptor());
+
+        registration.excludePathPatterns("/login");
+
+        registration.excludePathPatterns("/error");
+        //拦截全部
+        registration.addPathPatterns("/**");
     }
 }
