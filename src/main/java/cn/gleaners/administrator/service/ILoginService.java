@@ -7,6 +7,6 @@ import cn.gleaners.administrator.model.AdminEntity;
  * @date 2020/6/12 17:25
  * description：
  */
-public interface LoginService {
+public interface ILoginService {
     AdminEntity login(String username, String password);
 }

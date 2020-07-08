@@ -1,7 +1,7 @@
 package cn.gleaners.administrator.controller;
 
 import cn.gleaners.administrator.model.AdminEntity;
-import cn.gleaners.administrator.service.LoginService;
+import cn.gleaners.administrator.service.ILoginService;
 import cn.gleaners.administrator.utils.JwtUtils;
 import cn.gleaners.administrator.utils.response.Code;
 import cn.gleaners.administrator.utils.response.Message;
@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class LoginController {
 
     @Autowired
-    LoginService loginService;
+    ILoginService loginService;
 
     @PostMapping("/login")
     @ResponseBody

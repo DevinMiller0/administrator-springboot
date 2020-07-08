@@ -11,7 +11,7 @@ import java.util.List;
  * @date 2020/6/28 17:53
  * description：
  */
-public interface ArticleManagerService {
+public interface IArticleManagerService {
     List<ArticleModel> selectArticles(String cid, String c2id);
 
     int updateArticleState(int state, int id);

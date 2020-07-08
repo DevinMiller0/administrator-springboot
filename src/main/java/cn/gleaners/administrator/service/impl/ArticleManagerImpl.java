@@ -1,10 +1,10 @@
 package cn.gleaners.administrator.service.impl;
 
-import cn.gleaners.administrator.mapper.ArticleManagerMapper;
+import cn.gleaners.administrator.mapper.IArticleManagerMapper;
 import cn.gleaners.administrator.model.ArticleModel;
 import cn.gleaners.administrator.model.Category2Model;
 import cn.gleaners.administrator.model.CategoryModel;
-import cn.gleaners.administrator.service.ArticleManagerService;
+import cn.gleaners.administrator.service.IArticleManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,10 +16,10 @@ import java.util.List;
  * description：
  */
 @Service
-public class ArticleManagerImpl implements ArticleManagerService {
+public class ArticleManagerImpl implements IArticleManagerService {
 
     @Autowired
-    ArticleManagerMapper articleManagerMapper;
+    IArticleManagerMapper articleManagerMapper;
 
     @Override
     public List<ArticleModel> selectArticles(String cid, String c2id) {

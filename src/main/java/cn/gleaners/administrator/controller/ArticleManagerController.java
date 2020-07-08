@@ -3,7 +3,7 @@ package cn.gleaners.administrator.controller;
 import cn.gleaners.administrator.model.ArticleModel;
 import cn.gleaners.administrator.model.Category2Model;
 import cn.gleaners.administrator.model.CategoryModel;
-import cn.gleaners.administrator.service.ArticleManagerService;
+import cn.gleaners.administrator.service.IArticleManagerService;
 import cn.gleaners.administrator.utils.response.Code;
 import cn.gleaners.administrator.utils.response.Message;
 import cn.gleaners.administrator.utils.response.Response;
@@ -12,7 +12,6 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,7 +25,7 @@ import java.util.List;
 public class ArticleManagerController {
 
     @Autowired
-    ArticleManagerService articleManagerService;
+    IArticleManagerService articleManagerService;
 
     @PostMapping("/getArticle")
     @ResponseBody
@@ -70,11 +69,5 @@ public class ArticleManagerController {
         } else {
             return Response.Failed();
         }
-    }
-
-    @PostMapping("/saveArticle")
-    @ResponseBody
-    public ResultData<Object> saveArticle(@RequestBody ArticleModel articleModel) {
-        return Response.Success();
     }
 }

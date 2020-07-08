@@ -10,6 +10,6 @@ import org.apache.ibatis.annotations.Param;
  * description：
  */
 @Mapper
-public interface LoginMapper {
+public interface ILoginMapper {
     AdminEntity login(@Param("username") String username, @Param("password") String password);
 }

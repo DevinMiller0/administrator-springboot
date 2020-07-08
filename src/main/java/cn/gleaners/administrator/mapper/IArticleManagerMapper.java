@@ -14,7 +14,7 @@ import java.util.List;
  * description：
  */
 @Mapper
-public interface ArticleManagerMapper {
+public interface IArticleManagerMapper {
     List<ArticleModel> selectArticles(@Param("cid") String cid, @Param("c2id") String c2id);
 
     int updateArticleState(@Param("state") int state, @Param("id") int id);

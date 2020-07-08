@@ -26,7 +26,7 @@ public class JwtUtils {
                 .setSubject(adminEntity.getUsername())
                 .setIssuedAt(new Date())
                 .signWith(SignatureAlgorithm.HS256, "administrator")
-                .setExpiration(new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 5));
+                .setExpiration(new Date(new Date().getTime() + 1000 * 60 * 60 * 12));
         return jwtBuilder.compact();
     }
 
