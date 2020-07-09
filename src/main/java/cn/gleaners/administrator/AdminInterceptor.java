@@ -23,6 +23,7 @@ public class AdminInterceptor implements HandlerInterceptor {
         String token = request.getHeader("Authorization");
         AdminEntity adminEntity = JwtUtils.parseToken(token);
         if (adminEntity != null) {
+            System.out.println(adminEntity.toString());
             return true;
         }else {
             response.setContentType("application/json; charset=utf-8");

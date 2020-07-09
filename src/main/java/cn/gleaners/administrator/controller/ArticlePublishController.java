@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author WangDeSheng
@@ -24,16 +25,18 @@ public class ArticlePublishController {
     IArticlePublishService articlePublishService;
 
     @PostMapping("/saveArticle")
+    @ResponseBody
     public ResultData<Object> Publish(@RequestBody ArticleModel articleModel) {
         if (articleModel != null) {
-            System.out.println(articleModel.toString());
-            int code = articlePublishService.saveArticle(articleModel);
-            if (code == 1) {
-                return Response.Success();
-            }else {
-                return Response.Failed();
-            }
-        }else {
+            System.out.println("dddd-> " + articleModel.toString());
+            return Response.Success();
+//            int code = articlePublishService.saveArticle(articleModel);
+//            if (code == 1) {
+//                return Response.Success();
+//            }else {
+//                return Response.Failed();
+//            }
+        } else {
             return Response.Failed();
         }
     }
