@@ -28,14 +28,14 @@ public class LoginController {
     @ResponseBody
     public ResultData<Object> login(@RequestParam("username") String username, @RequestParam("password") String password) {
         if ("".equals(username) || "".equals(password)) {
-            return Response.Failed(Code.PARAM_ERROR, Message.PARAM_ERROR, null);
+            return Response.failed(Code.PARAM_ERROR, Message.PARAM_ERROR, null);
         }
         AdminEntity admin = loginService.login(username, password);
         if (admin != null) {
             String token = JwtUtils.generateToken(admin);
             admin.setToken(token);
-            return Response.Success(admin);
+            return Response.success(admin);
         }
-        return Response.Failed();
+        return Response.failed();
     }
 }

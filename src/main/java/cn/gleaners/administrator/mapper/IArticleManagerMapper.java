@@ -22,4 +22,10 @@ public interface IArticleManagerMapper {
     List<CategoryModel> selectCategory();
 
     List<Category2Model> selectC2ByCid(String cid);
+
+    ArticleModel selectArticleById(String articleId);
+
+    int updateArticle(ArticleModel articleModel);
+
+    int deleteArticleById(String articleId);
 }

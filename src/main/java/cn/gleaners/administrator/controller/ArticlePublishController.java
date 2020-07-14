@@ -2,7 +2,6 @@ package cn.gleaners.administrator.controller;
 
 import cn.gleaners.administrator.model.ArticleModel;
 import cn.gleaners.administrator.service.IArticlePublishService;
-import cn.gleaners.administrator.service.impl.ArticlePublishImpl;
 import cn.gleaners.administrator.utils.response.Response;
 import cn.gleaners.administrator.utils.response.ResultData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author WangDeSheng
@@ -26,19 +27,19 @@ public class ArticlePublishController {
 
     @PostMapping("/saveArticle")
     @ResponseBody
-    public ResultData<Object> Publish(@RequestBody ArticleModel articleModel) {
+    public ResultData<Object> Publish(@RequestBody ArticleModel articleModel, HttpServletRequest httpRequest) {
+        System.out.println(httpRequest.getQueryString());
         if (articleModel != null) {
             System.out.println("dddd-> " + articleModel.toString());
-            return Response.Success();
-//            int code = articlePublishService.saveArticle(articleModel);
-//            if (code == 1) {
-//                return Response.Success();
-//            }else {
-//                return Response.Failed();
-//            }
+            int code = articlePublishService.saveArticle(articleModel);
+            System.out.println(code);
+            if (code == 1) {
+                return Response.success();
+            } else {
+                return Response.failed();
+            }
         } else {
-            return Response.Failed();
+            return Response.failed();
         }
     }
-
 }

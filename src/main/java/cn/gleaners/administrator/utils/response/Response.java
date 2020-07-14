@@ -6,7 +6,7 @@ package cn.gleaners.administrator.utils.response;
  * description：
  */
 public class Response {
-    public static ResultData<Object> Success() {
+    public static ResultData<Object> success() {
         ResultData<Object> resultData = new ResultData<>();
         resultData.setCode(Code.SUCCESS);
         resultData.setMessage(Message.SUCCESS);
@@ -14,7 +14,7 @@ public class Response {
         return resultData;
     }
 
-    public static <T> ResultData<Object> Success(T data) {
+    public static <T> ResultData<Object> success(T data) {
         ResultData<Object> resultData = new ResultData<>();
         resultData.setCode(Code.SUCCESS);
         resultData.setMessage(Message.SUCCESS);
@@ -22,7 +22,7 @@ public class Response {
         return resultData;
     }
 
-    public static ResultData<Object> Failed() {
+    public static ResultData<Object> failed() {
         ResultData<Object> resultData = new ResultData<>();
         resultData.setCode(Code.FAILED);
         resultData.setMessage(Message.FAILED);
@@ -30,7 +30,7 @@ public class Response {
         return resultData;
     }
 
-    public static <T> ResultData<Object> Failed(Code code, Message msg, T data) {
+    public static <T> ResultData<Object> failed(Code code, Message msg, T data) {
         ResultData<Object> resultData = new ResultData<>();
         resultData.setCode(code);
         resultData.setMessage(msg);

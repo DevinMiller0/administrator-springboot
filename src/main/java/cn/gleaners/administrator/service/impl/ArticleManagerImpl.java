@@ -40,4 +40,19 @@ public class ArticleManagerImpl implements IArticleManagerService {
     public List<Category2Model> selectC2ByCid(String cid) {
         return articleManagerMapper.selectC2ByCid(cid);
     }
+
+    @Override
+    public ArticleModel selectArticleById(String articleId) {
+        return articleManagerMapper.selectArticleById(articleId);
+    }
+
+    @Override
+    public int updateArticle(ArticleModel articleModel) {
+        return articleManagerMapper.updateArticle(articleModel);
+    }
+
+    @Override
+    public int deleteArticleById(String articleId) {
+        return articleManagerMapper.deleteArticleById(articleId);
+    }
 }

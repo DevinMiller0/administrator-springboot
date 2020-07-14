@@ -31,4 +31,16 @@
         select * from category2 where cid=#{cid}
     </select>
 
+    <select id="selectArticleById" parameterType="String" resultType="cn.gleaners.administrator.model.ArticleModel">
+        select * from articles where id=#{articleId}
+    </select>
+
+    <update id="updateArticle" parameterType="cn.gleaners.administrator.model.ArticleModel" >
+        update articles set article=#{article} where id=#{id}
+    </update>
+
+    <delete id="deleteArticleById" parameterType="String" >
+        delete from articles where id=#{articleId}
+    </delete>
+
 </mapper>

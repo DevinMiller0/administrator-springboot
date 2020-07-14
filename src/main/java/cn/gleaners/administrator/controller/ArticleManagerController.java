@@ -30,22 +30,43 @@ public class ArticleManagerController {
     @PostMapping("/getArticle")
     @ResponseBody
     public ResultData<Object> getArticle(int pageNum, String cid, String c2id) {
-        PageHelper.startPage(pageNum, 4);
+        PageHelper.startPage(pageNum, 8);
         PageInfo<ArticleModel> pageInfo = new PageInfo<>(articleManagerService.selectArticles(cid, c2id));
-        return Response.Success(pageInfo);
+        return Response.success(pageInfo);
+    }
+
+    @PostMapping("/getArticleById")
+    @ResponseBody
+    public ResultData<Object> getArticleById(String articleId) {
+        ArticleModel articleModel = articleManagerService.selectArticleById(articleId);
+        if (articleModel != null) {
+            return Response.success(articleModel);
+        }
+        return Response.failed();
+    }
+
+    @PostMapping("/updateArticle")
+    @ResponseBody
+    public ResultData<Object> updateArticle(@RequestBody ArticleModel articleModel) {
+        System.out.println(articleModel);
+        int code = articleManagerService.updateArticle(articleModel);
+        if (code == 1) {
+            return Response.success();
+        }
+        return Response.failed();
     }
 
     @PostMapping("/setState")
     @ResponseBody
     public ResultData<Object> setState(int state, int id) {
         if (state != 0 && state != 1) {
-            return Response.Failed(Code.PARAM_ERROR, Message.PARAM_ERROR, "");
+            return Response.failed(Code.PARAM_ERROR, Message.PARAM_ERROR, "");
         }
         int c = articleManagerService.updateArticleState(state, id);
         if (c == 1) {
-            return Response.Success();
+            return Response.success();
         } else {
-            return Response.Failed();
+            return Response.failed();
         }
     }
 
@@ -54,9 +75,9 @@ public class ArticleManagerController {
     public ResultData<Object> getCategory() {
         List<CategoryModel> list = articleManagerService.selectCategory();
         if (list != null) {
-            return Response.Success(list);
+            return Response.success(list);
         } else {
-            return Response.Failed();
+            return Response.failed();
         }
     }
 
@@ -65,9 +86,20 @@ public class ArticleManagerController {
     public ResultData<Object> getCategory2ByCid(@RequestParam("cid") String cid) {
         List<Category2Model> list = articleManagerService.selectC2ByCid(cid);
         if (list != null) {
-            return Response.Success(list);
+            return Response.success(list);
         } else {
-            return Response.Failed();
+            return Response.failed();
         }
+    }
+
+    @PostMapping("/deleteArticle")
+    @ResponseBody
+    public ResultData<Object> deleteArticleById(String articleId) {
+        System.out.println(articleId);
+        int code = articleManagerService.deleteArticleById(articleId);
+        if (code == 1) {
+            return Response.success();
+        }
+        return Response.failed();
     }
 }

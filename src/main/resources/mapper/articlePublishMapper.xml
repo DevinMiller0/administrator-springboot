@@ -2,15 +2,14 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.gleaners.administrator.mapper.IArticleManagerMapper">
+<mapper namespace="cn.gleaners.administrator.mapper.IArticlePublishMapper">
 
 
-
-<insert id="saveArticle" parameterType="cn.gleaners.administrator.model.ArticleModel">
+    <insert id="saveArticle" parameterType="cn.gleaners.administrator.model.ArticleModel">
     insert into articles
-    (article, title, author, author_id, views, category, cid, c2id, time, description)
+    (article, title, author, author_id, views, category, category2, cid, c2id, time, description)
     values
-    (#{article}, #{title}, #{author}, #{author_id}, #{views}, #{category}, #{cid}, #{c2id}, #{time}, #{description});
+    (#{article}, #{title}, #{author}, #{author_id}, #{views}, #{category}, #{category2}, #{cid}, #{c2id}, #{time}, #{description});
 </insert>
 
 </mapper>

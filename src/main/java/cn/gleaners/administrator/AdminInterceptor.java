@@ -28,7 +28,7 @@ public class AdminInterceptor implements HandlerInterceptor {
         }else {
             response.setContentType("application/json; charset=utf-8");
             PrintWriter writer = response.getWriter();
-            writer.print(Response.Failed(Code.UNAUTHORIZED, Message.UNAUTHORIZED, ""));
+            writer.print(Response.failed(Code.UNAUTHORIZED, Message.UNAUTHORIZED, ""));
             writer.close();
             response.flushBuffer();
             return false;

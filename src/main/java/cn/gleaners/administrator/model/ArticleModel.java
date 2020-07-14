@@ -1,7 +1,6 @@
 package cn.gleaners.administrator.model;
 
 import com.alibaba.fastjson.JSON;
-import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * @author WangDeSheng
