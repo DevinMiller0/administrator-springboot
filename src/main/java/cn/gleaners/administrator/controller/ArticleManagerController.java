@@ -31,6 +31,7 @@ public class ArticleManagerController {
     @ResponseBody
     public ResultData<Object> getArticle(int pageNum, String cid, String c2id) {
         PageHelper.startPage(pageNum, 8);
+        PageHelper.orderBy("id desc");
         PageInfo<ArticleModel> pageInfo = new PageInfo<>(articleManagerService.selectArticles(cid, c2id));
         return Response.success(pageInfo);
     }

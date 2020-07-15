@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
-
 /**
  * @author WangDeSheng
  * @date 2020/7/6 15:19
@@ -27,12 +25,10 @@ public class ArticlePublishController {
 
     @PostMapping("/saveArticle")
     @ResponseBody
-    public ResultData<Object> Publish(@RequestBody ArticleModel articleModel, HttpServletRequest httpRequest) {
-        System.out.println(httpRequest.getQueryString());
+    public ResultData<Object> publish(@RequestBody ArticleModel articleModel) {
         if (articleModel != null) {
             System.out.println("dddd-> " + articleModel.toString());
             int code = articlePublishService.saveArticle(articleModel);
-            System.out.println(code);
             if (code == 1) {
                 return Response.success();
             } else {

@@ -1,6 +1,11 @@
 package cn.gleaners.administrator;
 
 
+import cn.gleaners.administrator.model.TestModel;
+import com.alibaba.fastjson.JSON;
+
+import java.util.List;
+
 /**
  * @author WangDeSheng
  * @date 2020/6/13 13:51
@@ -10,7 +15,10 @@ public class TestRunCode {
     public static void main(String[] args) {
 
         //A2FBD8E8  A2FBD8E8
-        String s = "A2FBD8E8";
-        System.out.println(Long.parseLong(s, 16));
+        String s ="";
+
+        List<TestModel> list = JSON.parseArray(s, TestModel.class);
+
+        System.out.println(list.size());
     }
 }
