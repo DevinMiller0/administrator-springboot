@@ -103,4 +103,21 @@ public class ArticleManagerController {
         }
         return Response.failed();
     }
+
+    @PostMapping("/modifyArticleInfo")
+    @ResponseBody
+    public ResultData<Object> modifyArticleInfo(@RequestBody ArticleModel articleModel) {
+        if (articleModel == null) {
+            return Response.failed(Code.PARAM_ERROR, Message.PARAM_ERROR, "");
+        }
+
+        System.out.println(articleModel.toString());
+
+        int code = articleManagerService.modifyArticleInfo(articleModel);
+        if (code == 1) {
+            return Response.success();
+        }else {
+            return Response.failed();
+        }
+    }
 }

@@ -55,4 +55,9 @@ public class ArticleManagerImpl implements IArticleManagerService {
     public int deleteArticleById(String articleId) {
         return articleManagerMapper.deleteArticleById(articleId);
     }
+
+    @Override
+    public int modifyArticleInfo(ArticleModel articleModel) {
+        return articleManagerMapper.modifyArticleInfo(articleModel);
+    }
 }

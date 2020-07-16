@@ -43,4 +43,8 @@
         delete from articles where id=#{articleId}
     </delete>
 
+    <update id="modifyArticleInfo" parameterType="cn.gleaners.administrator.model.ArticleModel" >
+        update articles set title=#{title}, category=#{category}, category2=#{category2}, cid=#{cid}, c2id=#{c2id} where id=#{id}
+    </update>
+
 </mapper>

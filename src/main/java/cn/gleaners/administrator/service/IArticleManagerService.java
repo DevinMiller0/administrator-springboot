@@ -25,4 +25,6 @@ public interface IArticleManagerService {
     int updateArticle(ArticleModel articleModel);
 
     int deleteArticleById(String articleId);
+
+    int modifyArticleInfo(ArticleModel articleModel);
 }
