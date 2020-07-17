@@ -11,6 +11,15 @@ public class Category2Model {
     private String c2id;
     private String name;
     private String cid;
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public String getC2id() {
         return c2id;
