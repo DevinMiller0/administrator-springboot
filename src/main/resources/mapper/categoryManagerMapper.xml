@@ -5,15 +5,16 @@
 <mapper namespace="cn.gleaners.administrator.mapper.ICategoryManagerMapper">
 
     <insert id="insertCategory1" parameterType="String">
-
+        insert into category (categoryName) values (#{categoryName})
     </insert>
     <insert id="insertCategory2" parameterType="String">
-        insert into category2
+        insert into category2 (cid, name, description) values (#{cid},#{name},#{description})
     </insert>
     <delete id="deleteCategoryByCid" parameterType="String">
+        delete from category where cid=#{cid}
     </delete>
     <delete id="deleteCategoryByC2id" parameterType="String">
-
+        delete from category2 where c2id=#{c2id}
     </delete>
 
 </mapper>
