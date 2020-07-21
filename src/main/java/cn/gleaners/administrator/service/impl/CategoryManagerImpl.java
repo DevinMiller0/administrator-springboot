@@ -36,4 +36,9 @@ public class CategoryManagerImpl implements ICategoryManagerService {
     public int deleteCategoryByC2id(String c2id) {
         return mapper.deleteCategoryByC2id(c2id);
     }
+
+    @Override
+    public int modifyCategory2Info(Category2Model category2Model) {
+        return mapper.modifyCategory2Info(category2Model);
+    }
 }

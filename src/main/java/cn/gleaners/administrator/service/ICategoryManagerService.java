@@ -13,4 +13,5 @@ public interface ICategoryManagerService {
     int insertCategory2(Category2Model category2Model);
     int deleteCategoryByCid(String cid);
     int deleteCategoryByC2id(String c2id);
+    int modifyCategory2Info(Category2Model category2Model);
 }

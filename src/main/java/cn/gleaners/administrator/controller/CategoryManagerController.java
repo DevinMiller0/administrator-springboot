@@ -74,4 +74,19 @@ public class CategoryManagerController {
         return Response.failed();
     }
 
+    @PostMapping("/modifyCategory2Info")
+    @ResponseBody
+    public ResultData<Object> modifyCategory2Info(@RequestBody Category2Model category2Model) {
+        if (category2Model != null) {
+            int code = service.modifyCategory2Info(category2Model);
+            if (code == 1) {
+                return Response.success();
+            } else {
+                return Response.failed();
+            }
+        } else {
+            return Response.failed(Code.PARAM_ERROR, Message.PARAM_ERROR, "");
+        }
+    }
+
 }
