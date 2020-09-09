@@ -14,11 +14,8 @@ import java.util.List;
 public class TestRunCode {
     public static void main(String[] args) {
 
-        //A2FBD8E8  A2FBD8E8
-        String s ="";
 
-        List<TestModel> list = JSON.parseArray(s, TestModel.class);
-
-        System.out.println(list.size());
+        float i = (float) 0.885122 * 100;
+        System.out.println(i + "%");
     }
 }

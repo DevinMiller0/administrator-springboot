@@ -8,13 +8,13 @@
     <select id="selectArticles" parameterType="String" resultType="cn.gleaners.administrator.model.ArticleModel" >
         <if test="cid == '' or c2id == ''">
             select
-            id, title, author, time, author_id, views, category, category2, cid, c2id, state
+            id, title, author, time, author_id, views, category, category2, cid, c2id, state, keywords, description
             from articles
         </if>
 
         <if test="cid != '' and c2id != ''">
             select
-            id, title, author, time, author_id, views, category, category2, cid, c2id, state
+            id, title, author, time, author_id, views, category, category2, cid, c2id, state, keywords, description
             from articles where cid=#{cid} and c2id=#{c2id}
         </if>
     </select>

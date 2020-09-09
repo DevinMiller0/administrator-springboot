@@ -23,7 +23,15 @@ public class ArticleModel {
 //    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private String updateTime;
     private String state;
+    private String keywords;
 
+    public String getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
+    }
 
     public String getState() {
         return state;
