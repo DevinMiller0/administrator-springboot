@@ -46,5 +46,9 @@
     <update id="modifyArticleInfo" parameterType="cn.gleaners.administrator.model.ArticleModel" >
         update articles set title=#{title}, category=#{category}, category2=#{category2}, cid=#{cid}, c2id=#{c2id} where id=#{id}
     </update>
+    <update id="modifyKeywords" parameterType="cn.gleaners.administrator.model.ArticleModel">
+        update articles set keywords=#{keywords}, description=#{description} where id=#{id}
+    </update>
+
 
 </mapper>

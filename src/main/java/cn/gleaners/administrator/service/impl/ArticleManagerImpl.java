@@ -60,4 +60,9 @@ public class ArticleManagerImpl implements IArticleManagerService {
     public int modifyArticleInfo(ArticleModel articleModel) {
         return articleManagerMapper.modifyArticleInfo(articleModel);
     }
+
+    @Override
+    public int modifyKeywords(ArticleModel articleModel) {
+        return articleManagerMapper.modifyKeywords(articleModel);
+    }
 }

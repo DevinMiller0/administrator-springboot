@@ -30,4 +30,6 @@ public interface IArticleManagerMapper {
     int deleteArticleById(String articleId);
 
     int modifyArticleInfo(ArticleModel articleModel);
+
+    int modifyKeywords(ArticleModel articleModel);
 }

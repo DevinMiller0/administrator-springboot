@@ -110,14 +110,26 @@ public class ArticleManagerController {
         if (articleModel == null) {
             return Response.failed(Code.PARAM_ERROR, Message.PARAM_ERROR, "");
         }
-
         System.out.println(articleModel.toString());
-
         int code = articleManagerService.modifyArticleInfo(articleModel);
         if (code == 1) {
             return Response.success();
-        }else {
+        } else {
             return Response.failed();
         }
+    }
+
+
+    @PostMapping("/modifyKeywords")
+    @ResponseBody
+    public ResultData<Object> modifyKeywords(@RequestBody ArticleModel articleModel) {
+        if (articleModel == null) {
+            return Response.failed(Code.PARAM_ERROR, Message.PARAM_ERROR, "");
+        }
+        int code = articleManagerService.modifyKeywords(articleModel);
+        if (code == 1) {
+            return Response.success();
+        }
+        return Response.failed();
     }
 }
