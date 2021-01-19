@@ -17,6 +17,7 @@ public class JwtUtils {
 
     /**
      * 生成token
+     *
      * @param adminEntity AdminEntity
      * @return token
      */
@@ -32,6 +33,7 @@ public class JwtUtils {
 
     /**
      * 解析验证
+     *
      * @param token token
      * @return AdminEntity
      */
@@ -48,7 +50,7 @@ public class JwtUtils {
             adminEntity.setAid(Integer.parseInt(claims.getId()));
             adminEntity.setUsername(claims.getSubject());
             return adminEntity;
-        }catch (Exception e) {
+        } catch (Exception e) {
             return null;
         }
     }

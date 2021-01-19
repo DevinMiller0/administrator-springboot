@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 public class ArticlePublishImpl implements IArticlePublishService {
     @Autowired
     IArticlePublishMapper articlePublishMapper;
+
     @Override
     public int saveArticle(ArticleModel articleModel) {
         return articlePublishMapper.saveArticle(articleModel);

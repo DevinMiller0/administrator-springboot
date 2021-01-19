@@ -9,8 +9,7 @@ public enum Message {
     SUCCESS("success"),
     FAILED("failed"),
     UNAUTHORIZED("登录过期"),
-    PARAM_ERROR("param err")
-    ;
+    PARAM_ERROR("param err");
 
     private String message;
 

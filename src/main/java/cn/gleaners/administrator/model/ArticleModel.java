@@ -20,7 +20,7 @@ public class ArticleModel {
     private String c2id;
     private String time;
     private String description;
-//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    //    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private String updateTime;
     private String state;
     private String keywords;

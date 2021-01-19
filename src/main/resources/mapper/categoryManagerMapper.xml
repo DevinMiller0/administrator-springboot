@@ -18,7 +18,7 @@
     </delete>
 
     <update id="modifyCategory2Info" parameterType="cn.gleaners.administrator.model.Category2Model">
-        update category2 set name=#{name}, description=#{description}  where c2id=#{c2id}
+        update category2 set name=#{name}, description=#{description} where c2id=#{c2id}
     </update>
 
 </mapper>

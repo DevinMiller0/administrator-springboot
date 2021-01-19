@@ -9,8 +9,7 @@ public enum Code {
     SUCCESS(200),
     FAILED(4000),
     UNAUTHORIZED(4001),
-    PARAM_ERROR(4002)
-    ;
+    PARAM_ERROR(4002);
 
     private int code;
 

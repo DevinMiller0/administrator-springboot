@@ -6,7 +6,7 @@
 
 
     <select id="login" parameterType="String" resultType="cn.gleaners.administrator.model.AdminEntity">
-        select  email, username, aid from admin where username = #{username} and password = #{password}
+        select email, username, aid from admin where username = #{username} and password = #{password}
     </select>
 
 </mapper>

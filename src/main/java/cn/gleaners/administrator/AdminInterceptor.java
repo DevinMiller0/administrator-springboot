@@ -25,7 +25,7 @@ public class AdminInterceptor implements HandlerInterceptor {
         if (adminEntity != null) {
             System.out.println(adminEntity.toString());
             return true;
-        }else {
+        } else {
             response.setContentType("application/json; charset=utf-8");
             PrintWriter writer = response.getWriter();
             writer.print(Response.failed(Code.UNAUTHORIZED, Message.UNAUTHORIZED, ""));

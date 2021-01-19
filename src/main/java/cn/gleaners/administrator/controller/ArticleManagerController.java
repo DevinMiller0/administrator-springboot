@@ -30,7 +30,7 @@ public class ArticleManagerController {
     @PostMapping("/getArticle")
     @ResponseBody
     public ResultData<Object> getArticle(int pageNum, String cid, String c2id) {
-        PageHelper.startPage(pageNum, 8);
+        PageHelper.startPage(pageNum, 12);
         PageHelper.orderBy("id desc");
         PageInfo<ArticleModel> pageInfo = new PageInfo<>(articleManagerService.selectArticles(cid, c2id));
         return Response.success(pageInfo);
