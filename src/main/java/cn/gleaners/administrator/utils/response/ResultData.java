@@ -16,16 +16,16 @@ public class ResultData<T> {
         return code;
     }
 
-    public void setCode(Code code) {
-        this.code = code.code();
+    public void setCode(int code) {
+        this.code = code;
     }
 
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(Message message) {
-        this.message = message.msg();
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public T getData() {

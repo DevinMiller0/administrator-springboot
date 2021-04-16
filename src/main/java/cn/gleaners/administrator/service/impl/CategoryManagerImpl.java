@@ -2,10 +2,13 @@ package cn.gleaners.administrator.service.impl;
 
 import cn.gleaners.administrator.mapper.ICategoryManagerMapper;
 import cn.gleaners.administrator.model.Category2Model;
+import cn.gleaners.administrator.model.Category3Model;
 import cn.gleaners.administrator.model.CategoryModel;
 import cn.gleaners.administrator.service.ICategoryManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author WangDeSheng
@@ -41,4 +44,21 @@ public class CategoryManagerImpl implements ICategoryManagerService {
     public int modifyCategory2Info(Category2Model category2Model) {
         return mapper.modifyCategory2Info(category2Model);
     }
+
+    @Override
+    public int addCategory3(Category3Model category3Model) {
+        return mapper.addCategory3(category3Model);
+    }
+
+    @Override
+    public List<Category3Model> getCategory3(String cid1, String cid2) {
+        return mapper.getCategory3(cid1, cid2);
+    }
+
+    @Override
+    public int delCategory3(String cid3) {
+        return mapper.delCategory3(cid3);
+    }
+
+
 }

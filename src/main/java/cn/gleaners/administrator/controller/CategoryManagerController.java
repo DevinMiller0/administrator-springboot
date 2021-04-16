@@ -1,20 +1,18 @@
 package cn.gleaners.administrator.controller;
 
 import cn.gleaners.administrator.model.Category2Model;
+import cn.gleaners.administrator.model.Category3Model;
 import cn.gleaners.administrator.model.CategoryModel;
 import cn.gleaners.administrator.service.ICategoryManagerService;
 import cn.gleaners.administrator.service.impl.CategoryManagerImpl;
-import cn.gleaners.administrator.utils.response.Code;
-import cn.gleaners.administrator.utils.response.Message;
-import cn.gleaners.administrator.utils.response.Response;
-import cn.gleaners.administrator.utils.response.ResultData;
+import cn.gleaners.administrator.utils.response.*;
+import com.sun.media.jfxmedia.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author WangDeSheng
@@ -30,8 +28,8 @@ public class CategoryManagerController {
 
     @PostMapping("/addCategory1")
     @ResponseBody
-    public ResultData<Object> insertCategory1(@RequestBody CategoryModel categoryModel) {
-        if (categoryModel == null) return Response.failed(Code.PARAM_ERROR, Message.PARAM_ERROR, "");
+    public ResultData<?> insertCategory1(@RequestBody CategoryModel categoryModel) {
+        if (categoryModel == null) return Response.failed(Result.PARAM_ERROR, "");
 
         int code = service.insertCategory1(categoryModel);
         if (code == 1) {
@@ -42,8 +40,8 @@ public class CategoryManagerController {
 
     @PostMapping("/addCategory2")
     @ResponseBody
-    public ResultData<Object> insertCategory2(@RequestBody Category2Model category2Model) {
-        if (category2Model == null) return Response.failed(Code.PARAM_ERROR, Message.PARAM_ERROR, "");
+    public ResultData<?> insertCategory2(@RequestBody Category2Model category2Model) {
+        if (category2Model == null) return Response.failed(Result.PARAM_ERROR, "");
         int code = service.insertCategory2(category2Model);
         if (code == 1) {
             return Response.success();
@@ -53,8 +51,8 @@ public class CategoryManagerController {
 
     @PostMapping("/deleteCategory")
     @ResponseBody
-    public ResultData<Object> deleteCategoryByCid(String cid) {
-        if (StringUtils.isEmpty(cid)) return Response.failed(Code.PARAM_ERROR, Message.PARAM_ERROR, "");
+    public ResultData<?> deleteCategoryByCid(String cid) {
+        if (StringUtils.isEmpty(cid)) return Response.failed(Result.PARAM_ERROR, "");
         int code = service.deleteCategoryByCid(cid);
         if (code == 1) {
             return Response.success();
@@ -64,8 +62,8 @@ public class CategoryManagerController {
 
     @PostMapping("/deleteCategory2")
     @ResponseBody
-    public ResultData<Object> deleteCategoryByC2id(String c2id) {
-        if (StringUtils.isEmpty(c2id)) return Response.failed(Code.PARAM_ERROR, Message.PARAM_ERROR, "");
+    public ResultData<?> deleteCategoryByC2id(String c2id) {
+        if (StringUtils.isEmpty(c2id)) return Response.failed(Result.PARAM_ERROR, "");
 
         int code = service.deleteCategoryByC2id(c2id);
         if (code == 1) {
@@ -76,7 +74,7 @@ public class CategoryManagerController {
 
     @PostMapping("/modifyCategory2Info")
     @ResponseBody
-    public ResultData<Object> modifyCategory2Info(@RequestBody Category2Model category2Model) {
+    public ResultData<?> modifyCategory2Info(@RequestBody Category2Model category2Model) {
         if (category2Model != null) {
             int code = service.modifyCategory2Info(category2Model);
             if (code == 1) {
@@ -85,7 +83,53 @@ public class CategoryManagerController {
                 return Response.failed();
             }
         } else {
-            return Response.failed(Code.PARAM_ERROR, Message.PARAM_ERROR, "");
+            return Response.failed(Result.PARAM_ERROR, "");
+        }
+    }
+
+    @PostMapping("/addCategory3")
+    @ResponseBody
+    public ResultData<?> addCategory3(@RequestBody Category3Model category3Model) {
+        if (category3Model != null) {
+            System.out.println(category3Model.toString());
+            int code = service.addCategory3(category3Model);
+            if (code == 1) {
+                return Response.success();
+            } else {
+                return Response.failed();
+            }
+        } else {
+            return Response.failed(Result.PARAM_ERROR, "");
+        }
+    }
+
+    @PostMapping("/getCategory3")
+    @ResponseBody
+    public ResultData<?> getCategory3(String cid1, String cid2) {
+        if (!StringUtils.isEmpty(cid1) && !StringUtils.isEmpty(cid2)) {
+            List<Category3Model> list = service.getCategory3(cid1, cid2);
+            if (list != null) {
+                return Response.success(list);
+            } else {
+                return Response.failed();
+            }
+        } else {
+            return Response.failed(Result.PARAM_ERROR, "");
+        }
+    }
+
+    @PostMapping("/delCategory3")
+    @ResponseBody
+    public ResultData<?> delCategory3(String cid3) {
+        if (!StringUtils.isEmpty(cid3)) {
+            int code = service.delCategory3(cid3);
+            if (code == 1) {
+                return Response.success();
+            } else {
+                return Response.failed();
+            }
+        } else {
+            return Response.failed(Result.PARAM_ERROR, "");
         }
     }
 
