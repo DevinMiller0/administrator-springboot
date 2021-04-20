@@ -1,6 +1,7 @@
 package cn.gleaners.administrator.model;
 
 import com.alibaba.fastjson.JSON;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * @author WangDeSheng
@@ -18,12 +19,20 @@ public class ArticleModel {
     private String category2;
     private String cid;
     private String c2id;
+    private String c3id;
     private String time;
     private String description;
-    //    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private String updateTime;
     private String state;
     private String keywords;
+
+    public String getC3id() {
+        return c3id;
+    }
+
+    public void setC3id(String c3id) {
+        this.c3id = c3id;
+    }
 
     public String getKeywords() {
         return keywords;

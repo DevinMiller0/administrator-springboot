@@ -25,9 +25,9 @@ public class ArticlePublishController {
 
     @PostMapping("/saveArticle")
     @ResponseBody
-    public ResultData<Object> publish(@RequestBody ArticleModel articleModel) {
+    public ResultData<?> publish(@RequestBody ArticleModel articleModel) {
         if (articleModel != null) {
-            System.out.println("dddd-> " + articleModel.toString());
+//            System.out.println("dddd-> " + articleModel.toString());
             int code = articlePublishService.saveArticle(articleModel);
             if (code == 1) {
                 return Response.success();

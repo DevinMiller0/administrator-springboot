@@ -26,7 +26,7 @@ public class LoginController {
 
     @PostMapping("/login")
     @ResponseBody
-    public ResultData<Object> login(@RequestParam("username") String username, @RequestParam("password") String password) {
+    public ResultData<?> login(@RequestParam("username") String username, @RequestParam("password") String password) {
         if ("".equals(username) || "".equals(password)) {
             return Response.failed(Code.PARAM_ERROR, Message.PARAM_ERROR, null);
         }

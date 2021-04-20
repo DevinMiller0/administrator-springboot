@@ -3,6 +3,7 @@ package cn.gleaners.administrator.service.impl;
 import cn.gleaners.administrator.mapper.IArticleManagerMapper;
 import cn.gleaners.administrator.model.ArticleModel;
 import cn.gleaners.administrator.model.Category2Model;
+import cn.gleaners.administrator.model.Category3Model;
 import cn.gleaners.administrator.model.CategoryModel;
 import cn.gleaners.administrator.service.IArticleManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,11 @@ public class ArticleManagerImpl implements IArticleManagerService {
     @Override
     public List<Category2Model> selectC2ByCid(String cid) {
         return articleManagerMapper.selectC2ByCid(cid);
+    }
+
+    @Override
+    public List<Category3Model> selectC3ByC2id(String c2id) {
+        return articleManagerMapper.selectC3ByC2id(c2id);
     }
 
     @Override

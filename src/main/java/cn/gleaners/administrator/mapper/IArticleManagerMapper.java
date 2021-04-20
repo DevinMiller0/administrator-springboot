@@ -2,6 +2,7 @@ package cn.gleaners.administrator.mapper;
 
 import cn.gleaners.administrator.model.ArticleModel;
 import cn.gleaners.administrator.model.Category2Model;
+import cn.gleaners.administrator.model.Category3Model;
 import cn.gleaners.administrator.model.CategoryModel;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -22,6 +23,8 @@ public interface IArticleManagerMapper {
     List<CategoryModel> selectCategory();
 
     List<Category2Model> selectC2ByCid(String cid);
+
+    List<Category3Model> selectC3ByC2id(String c2id);
 
     ArticleModel selectArticleById(String articleId);
 
